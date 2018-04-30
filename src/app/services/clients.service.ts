@@ -36,12 +36,28 @@ export class ClientsService {
     return this._http.post(this.url+'clients', cli, requestOptions);
   }
 
+  updateClient(id, client: Client){
+    var cli = this.FormaterClient(client);
+    let headersOptions = new Headers({'Content-Type': 'application/json'});
+    headersOptions.append('Authorization', this.auth_token);
+    let requestOptions = new RequestOptions({ method: RequestMethod.Patch, headers : headersOptions });
+    return this._http.patch(this.url+'clients/'+id, cli, requestOptions);
+  }
+
+  delete(id){
+    let headersOptions = new Headers({'Content-Type': 'application/json'});
+    headersOptions.append('Authorization', this.auth_token);
+    let requestOptions = new RequestOptions({ method: RequestMethod.Delete, headers : headersOptions });
+    return this._http.delete(this.url+'clients/'+id, requestOptions);
+  }
+
   getListClients(){
     let headersOptions = new Headers({'Content-Type': 'application/json'});
     headersOptions.append('Authorization', this.auth_token);
     let requestOptions = new RequestOptions({ method: RequestMethod.Get, headers : headersOptions });
     return this._http.get(this.url+'clients', requestOptions);
   }
+
 
 
   private FormaterClient(data){

@@ -10,7 +10,6 @@ import { ClientsService } from '../../../services/clients.service';
 @Component({
   selector: 'app-clients-add',
   templateUrl: './clients-add.component.html',
-  styleUrls: ['./clients-add.component.css'],
   providers: [ClientsService]
 })
 export class ClientsAddComponent implements OnInit {

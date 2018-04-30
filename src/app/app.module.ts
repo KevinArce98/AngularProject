@@ -22,6 +22,9 @@ import { UsersEditComponent } from './components/users/users-edit/users-edit.com
 import { ClientsComponent } from './components/clients/clients.component';
 import { ClientsAddComponent } from './components/clients/clients-add/clients-add.component';
 import { ClientsEditComponent } from './components/clients/clients-edit/clients-edit.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { MeetingsComponent } from './components/meetings/meetings.component';
+import { TicketsComponent } from './components/tickets/tickets.component';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { ClientsEditComponent } from './components/clients/clients-edit/clients-
     UsersEditComponent,
     ClientsComponent,
     ClientsAddComponent,
-    ClientsEditComponent
+    ClientsEditComponent,
+    ContactsComponent,
+    MeetingsComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,

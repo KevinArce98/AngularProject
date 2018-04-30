@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-users-add',
   templateUrl: './users-add.component.html',
-  styleUrls: ['./users-add.component.css'],
   providers: [UserService]
 })
 export class UsersAddComponent implements OnInit {

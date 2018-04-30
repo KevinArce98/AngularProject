@@ -7,7 +7,6 @@ import { User } from '../../../models/user';
 @Component({
   selector: 'app-users-edit',
   templateUrl: './users-edit.component.html',
-  styleUrls: ['./users-edit.component.css'],
   providers:[UserService]
 })
 export class UsersEditComponent implements OnInit {
