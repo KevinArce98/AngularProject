@@ -1,0 +1,35 @@
+<div class="container">
+	<h1>Users</h1>
+	<a routerLink="add" class="btn btn-success">Create New</a>
+
+	<table class="table table-hover mt-5">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Lastname</th>
+				<th>Username</th>
+				<th>Admin</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngIf="!users">
+				<td colspan="5" class="text-center">there are not registers</td>
+			</tr>
+			<tr *ngFor = "let user of users">
+				<td>{{ user.name }}</td>
+				<td>{{ user.lastname }}</td>
+				<td>{{ user.username }}</td>
+				<td *ngIf="user.isAdmin else notAdmin"><i class="fas fa-lock-open"></i></td>
+				<ng-template #notAdmin>
+				    <td><i class="fas fa-lock"></i></td>
+				</ng-template>
+				<td>
+					<a class="btn btn-warning btn-sm" [routerLink]="['edit',user.id]"><i class="fas fa-edit"></i></a>
+					<a class="btn btn-danger btn-sm" (click)="delete(user.id)"><i class="fas fa-trash-alt"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
