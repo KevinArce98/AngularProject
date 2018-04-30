@@ -22,14 +22,18 @@ export class ClientsComponent implements OnInit {
   		this.getClients();
   	}
 
-
+    delete(id){
+      this._ClientsService.delete(id).subscribe(
+        response=>{
+          this.getClients();
+        }, err => {
+          this.error = err.statusText;
+        });
+    }
   	getClients(){
   		this._ClientsService.getListClients().subscribe(response=>{
   			this.clients = response.json();
-  			console.log(response.json());
   		}, err=>{
-  			console.log(err);
-
   			this.error = err.statusText;
   		});
   	}

@@ -51,6 +51,13 @@ export class ClientsService {
     return this._http.delete(this.url+'clients/'+id, requestOptions);
   }
 
+  getUser(id){
+    let headersOptions = new Headers({'Content-Type': 'application/json'});
+    headersOptions.append('Authorization', this.auth_token);
+    let requestOptions = new RequestOptions({ method: RequestMethod.Get, headers : headersOptions });
+    return this._http.get(this.url+'clients/'+id, requestOptions);
+  }
+
   getListClients(){
     let headersOptions = new Headers({'Content-Type': 'application/json'});
     headersOptions.append('Authorization', this.auth_token);
