@@ -10,6 +10,9 @@ import { ProtectUrl } from './services/ProtectUrl.service';
 import { LoginService } from './services/login.service';
 import { UserService } from './services/users.service';
 import { ClientsService } from './services/clients.service';
+import { ContactsService } from './services/contacts.service';
+import { MeetingsService } from './services/meetings.service';
+import { TicketsService } from './services/tickets.service';
 
 //Components
 import { AppComponent } from './app.component';
@@ -71,7 +74,10 @@ import { TicketEditComponent } from './components/tickets/ticket-edit/ticket-edi
   ProtectUrl,
   LoginService,
   UserService,
-  ClientsService
+  ClientsService,
+  MeetingsService,
+  ContactsService,
+  TicketsService
   ],
   bootstrap: [AppComponent]
 })

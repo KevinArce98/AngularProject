@@ -1,3 +1,37 @@
-<p>
-  tickets works!
-</p>
+<div class="container">
+	<h1 class="text-center">Tickets</h1>
+	<a routerLink="/tickets/add" class="btn btn-success">Create New</a>
+	<div class="alert alert-danger" *ngIf="error != ''">
+		{{error}}
+	</div>
+	<table class="table table-hover mt-5">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Deatils</th>
+				<th>Reporter</th>
+				<th>Status</th>
+				<th>Client</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngIf="!tickets">
+				<td colspan="7" class="text-center">there are not registers</td>
+			</tr>
+			<tr *ngFor = "let ticket of tickets">
+				<td>{{ ticket.title }}</td>
+				<td>{{ ticket.details }}</td>
+				<td>{{ ticket.reporter }}</td>
+				<td>{{ ticket.status }}</td>
+				<td>{{ ticket.client.name }}</td>
+				<td>
+					<a class="btn btn-warning btn-sm" [routerLink]="['edit',ticket.id]"><i class="fas fa-edit"></i></a>
+					<a class="btn btn-danger btn-sm" (click)="delete(ticket.id)"><i class="fas fa-trash-alt"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</div>

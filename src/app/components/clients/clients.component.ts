@@ -31,7 +31,7 @@ export class ClientsComponent implements OnInit {
         });
     }
   	getClients(){
-  		this._ClientsService.getListClients().subscribe(response=>{
+  		this._ClientsService.getList().subscribe(response=>{
   			this.clients = response.json();
   		}, err=>{
   			this.error = err.statusText;

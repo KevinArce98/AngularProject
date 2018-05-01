@@ -12,7 +12,7 @@ import { ContactsService } from '../../services/contacts.service';
 })
 export class ContactsComponent implements OnInit {
 	error = "";
-	clients: any;
+	contacts: any;
   	constructor(
   		private _ContactsService: ContactsService,
   		private _router : Router
@@ -23,7 +23,22 @@ export class ContactsComponent implements OnInit {
   }
 
   getContacts(){
-
+    this._ContactsService.getList().subscribe(
+      response=>{
+         this.contacts = response.json();
+      }, err=>{
+        this.error = err.statuText;
+      }
+      );
   }
+
+  delete(id){
+      this._ContactsService.delete(id).subscribe(
+        response=>{
+          this.getContacts();
+        }, err => {
+          this.error = err.statusText;
+        });
+    }
 
 }

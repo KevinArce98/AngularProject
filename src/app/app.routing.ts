@@ -10,6 +10,16 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ClientsAddComponent } from './components/clients/clients-add/clients-add.component';
 import { ClientsEditComponent } from './components/clients/clients-edit/clients-edit.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { ContactAddComponent } from './components/contacts/contact-add/contact-add.component';
+import { ContactEditComponent } from './components/contacts/contact-edit/contact-edit.component';
+import { MeetingsComponent } from './components/meetings/meetings.component';
+import { MeetingAddComponent } from './components/meetings/meeting-add/meeting-add.component';
+import { MeetingEditComponent } from './components/meetings/meeting-edit/meeting-edit.component';
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { TicketAddComponent } from './components/tickets/ticket-add/ticket-add.component';
+import { TicketEditComponent } from './components/tickets/ticket-edit/ticket-edit.component';
+
 
 const appRoutes: Routes = [
 	{path:'', component: LoginComponent},
@@ -20,6 +30,15 @@ const appRoutes: Routes = [
 	{path:'clients', component: ClientsComponent, canActivate: [ProtectUrl]},
 	{path:'clients/add', component: ClientsAddComponent, canActivate: [ProtectUrl]},
 	{path:'clients/edit/:id', component: ClientsEditComponent, canActivate: [ProtectUrl]},
+	{path:'contacts', component: ContactsComponent, canActivate: [ProtectUrl]},
+	{path:'contacts/add', component: ContactAddComponent, canActivate: [ProtectUrl]},
+	{path:'contacts/edit/:id', component: ContactEditComponent, canActivate: [ProtectUrl]},
+	{path:'meetings', component: MeetingsComponent, canActivate: [ProtectUrl]},
+	{path:'meetings/add', component: MeetingAddComponent, canActivate: [ProtectUrl]},
+	{path:'meetings/edit/:id', component: MeetingEditComponent, canActivate: [ProtectUrl]},
+	{path:'tickets', component: TicketsComponent, canActivate: [ProtectUrl]},
+	{path:'tickets/add', component: TicketAddComponent, canActivate: [ProtectUrl]},
+	{path:'tickets/edit/:id', component: TicketEditComponent, canActivate: [ProtectUrl]},
 	{path:'home', component: HomeComponent, canActivate: [ProtectUrl]},
 	{path:'**', component: LoginComponent},
 

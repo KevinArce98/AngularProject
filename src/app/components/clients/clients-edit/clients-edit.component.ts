@@ -32,9 +32,21 @@ export class ClientsEditComponent implements OnInit {
     this._route.params.subscribe(
       params => {
         let id = +params['id'];
-        this._ClientsService.getUser(id).subscribe(
+        this._ClientsService.get(id).subscribe(
           response=>{
             this.client = response.json();
+          }, err=>{
+            this.error = err.statusText;
+          });
+      });
+  }
+  onSubmit(form : NgForm){
+     this._route.params.subscribe(
+      params => {
+        let id = +params['id'];
+        this._ClientsService.update(id, form.value).subscribe(
+          response=>{
+            this._router.navigate(['clients']);
           }, err=>{
             this.error = err.statusText;
           });

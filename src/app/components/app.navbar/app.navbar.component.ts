@@ -17,5 +17,5 @@ export class AppNavbarComponent implements OnInit {
     localStorage.removeItem('auth_token');
     this.router.navigate(['login']);
   }
-
+  
 }

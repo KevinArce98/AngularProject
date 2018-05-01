@@ -1,3 +1,41 @@
-<p>
-  contact-edit works!
-</p>
+<div class="container">
+	<h2>Editing Contact</h2>
+	<div class="alert alert-danger" *ngIf="error != ''">
+		{{error}}
+	</div>
+	<form #addContactForm="ngForm" *ngIf="contact">
+		<div class="form-group">
+	        <label for="Name">Name</label>
+	        <input type="text" name="Name" class="form-control" placeholder="Name" required #Contact="ngModel" [(ngModel)]="contact.name" autofocus="" >
+      	</div>
+
+      	<div class="form-group">
+	        <label for="LastName">Last Name</label>
+	        <input type="text" name="LastName" class="form-control" placeholder="Last Name" required #Contact="ngModel" [(ngModel)]="contact.last_name" autofocus="" >
+      	</div>
+
+		<div class="form-group">
+	        <label for="email">Email</label>
+	        <input type="email" name="email" class="form-control" placeholder="Email" required #Contact="ngModel" [(ngModel)]="contact.email" autofocus="" >
+      	</div>
+
+
+      	<div class="form-group">
+	        <label for="phone">Phone</label>
+	        <input type="text" name="phone_number" class="form-control" placeholder="Phone" required #Contact="ngModel" [(ngModel)]="contact.phone_number" autofocus="" >
+      	</div>
+      	<div class="form-group">
+	        <label for="position">Position</label>
+	        <input type="text" name="position" class="form-control" placeholder="Position" required #Contact="ngModel" [(ngModel)]="contact.position" autofocus="" >
+      	</div>
+
+      	<div class="form-group" *ngIf="clients">
+		  <label for="client">Select client list:</label>
+		  <select class="form-control" name="client" #Contact="ngModel" [(ngModel)]="contact.client_id">
+		    <option *ngFor = "let client of clients" value="{{client.id}}">{{client.name}}</option>
+		  </select>
+		</div>
+
+		<button type="submit" class="btn btn-primary" (click)="onSubmit(addContactForm)">Save</button>
+	</form>
+</div>

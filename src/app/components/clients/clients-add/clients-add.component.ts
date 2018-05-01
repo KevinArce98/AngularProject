@@ -25,7 +25,7 @@ export class ClientsAddComponent implements OnInit {
 
   	onSubmit(form: NgForm){
   		this.error = "";
-  		this._ClientsService.addClient(form.value).subscribe(
+  		this._ClientsService.add(form.value).subscribe(
   			response=>{
   				this._router.navigate(['clients']);
 	  		}, 

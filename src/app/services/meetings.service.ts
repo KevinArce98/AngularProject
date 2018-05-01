@@ -34,17 +34,19 @@ export class MeetingsService {
   	}
 
   	addMeeting(meeting: Meeting){
+      var meet = this.formater(meeting);
 	    let headersOptions = new Headers({'Content-Type': 'application/json'});
 	    headersOptions.append('Authorization', this.auth_token);
 	    let requestOptions = new RequestOptions({ method: RequestMethod.Post, headers : headersOptions });
-	    return this._http.post(this.url+'meetings', meeting, requestOptions);
+	    return this._http.post(this.url+'meetings', meet, requestOptions);
   	}
 
   	updateMeeting(id, meeting: Meeting){
+      var meet = this.formater(meeting);
       let headersOptions = new Headers({'Content-Type': 'application/json'});
       headersOptions.append('Authorization', this.auth_token);
       let requestOptions = new RequestOptions({ method: RequestMethod.Patch, headers : headersOptions });
-      return this._http.patch(this.url+'meetings/'+id, meeting, requestOptions);
+      return this._http.patch(this.url+'meetings/'+id, meet, requestOptions);
   	}
 
   	deleteMeeting(id){
@@ -60,5 +62,20 @@ export class MeetingsService {
 	    let requestOptions = new RequestOptions({ method: RequestMethod.Get, headers : headersOptions });
 	    return this._http.get(this.url+'meetings', requestOptions);
   	}
+
+
+    private formater(mt){
+      var meeting = {
+        "meeting": 
+               {
+                "title":mt.title, 
+                "meetDate": mt.meetDate, 
+                "isVirtual":mt.isVirtual, 
+                "client_id":mt.client_id, 
+                "user_ids":mt.user_ids
+              }
+      };
+      return meeting;
+    }
 
 }
